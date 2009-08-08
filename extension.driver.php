@@ -36,6 +36,12 @@
 				),
 			);
 		}
+                
+                public function uninstall(){
+                        Administration::instance()->Configuration->remove('admin_rainbow_headline');            
+                        Administration::instance()->saveConfig();
+                }
+
 
 		public function initaliseAdminPageHead($context) {
 			$page = $context['parent']->Page;
