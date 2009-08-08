@@ -49,6 +49,7 @@
 			if(General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline')) != "") {
 				$page->addElementToHead(new XMLElement("style", "
 				body form h1 { background-color: " . General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline')) . "; }
+				body form ul#usr { background-color: " . General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline')) . "; }
 			", array("type" => "text/css", "media" => "screen, projection")), 100012);
 			}
 		}
