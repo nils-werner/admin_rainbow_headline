@@ -9,11 +9,9 @@ Requirements: Symphony 2.0.6
 
 [ABOUT]
 
-Have you ever had two or more installations of Symphony open in several tabs? Have you ever had problems differentiating 
-those tabs, making changes to one of those sites that were supposed to go into another one?
+Have you ever had two or more installations of Symphony open in several tabs? Have you ever had problems differentiating those tabs, making changes to one of those sites that were supposed to go into another one?
 
-Admin Rainbow Headline comes to the rescue. It lets you set any RGB-Color for the headline (the dark grey block at the top
-of Symphonys backend), making it easier to differentiate them.
+Admin Rainbow Headline comes to the rescue. It lets you set any RGB-Color for the headline (the dark grey block at the top of Symphonys backend), making it easier to differentiate them.
 
 [INSTALLATION]
 
