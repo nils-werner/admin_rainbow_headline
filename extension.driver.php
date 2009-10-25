@@ -46,10 +46,24 @@
 		public function initaliseAdminPageHead($context) {
 			$page = $context['parent']->Page;
 			
-			if(General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline')) != "") {
-				$page->addElementToHead(new XMLElement("style", "
-				body form h1, body form ul#usr { background-color: " . General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline')) . "; }
-			", array("type" => "text/css", "media" => "screen, projection")), 100012);
+			$color = General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline'));
+			
+			if($color != "") {
+				$page->addElementToHead(new XMLElement("style", "\nbody form h1, body form ul#usr { background-color: " . $color . "; }\n", array("type" => "text/css", "media" => "screen, projection")), 100012);
+				
+				include_once(EXTENSIONS . '/admin_rainbow_headline/lib/imagebmp.php');
+				
+				$imagehandle = imagecreatetruecolor(16,16);
+				$colorarray = sscanf($color, '#%2x%2x%2x');
+				$colorhandle = imagecolorallocate($imagehandle,$colorarray[0],$colorarray[1],$colorarray[2]);
+				imagefill($imagehandle,0,0,$colorhandle);
+				ob_start();
+				imagebmp($imagehandle);
+				$ico64data = base64_encode(ob_get_contents());
+				ob_end_clean();
+				
+				
+				$page->addElementToHead(new XMLElement("link", NULL, array("rel" => "shortcut icon", "href" => "data:image/x-icon;base64," . $ico64data, "type" => "image/x-icon")), 100013);
 			}
 		}
 		
