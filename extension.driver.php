@@ -49,7 +49,7 @@
 			$color = General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline'));
 			
 			if($color != "") {
-				$page->addElementToHead(new XMLElement("style", "\nbody form h1, body form ul#usr { background-color: " . $color . "; }\n", array("type" => "text/css", "media" => "screen, projection")), 100012);
+				$page->addElementToHead(new XMLElement("style", "body form h1, body form ul#usr { background-color: " . $color . "; }", array("type" => "text/css", "media" => "screen, projection")), 100012);
 				
 				include_once(EXTENSIONS . '/admin_rainbow_headline/lib/imagebmp.php');
 				
