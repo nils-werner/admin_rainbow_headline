@@ -2,7 +2,7 @@
 Admin Rainbow Headline
 ------------------------------------
 
-Version: 1.0
+Version: 1.1
 Author: Nils Werner (nils.werner@gmail.com)
 Build Date: 2009-08-08
 Requirements: Symphony 2.0.6
@@ -25,3 +25,6 @@ Admin Rainbow Headline comes to the rescue. It lets you set any RGB-Color for th
 
 1.0
 - Initial release
+
+1.1
+- Added generation of favicon based on chosen color.
