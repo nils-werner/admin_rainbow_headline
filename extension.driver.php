@@ -4,7 +4,7 @@
 	
 		public function about(){
 			return array('name' => 'Admin Rainbow Headline',
-						 'version' => '1.1',
+						 'version' => '1.2',
 						 'release-date' => '2009-10-25',
 						 'author' => array('name' => 'Nils Werner',
 										   'website' => 'http://www.phoque.com/projekte/symphony',
@@ -64,6 +64,10 @@
 				
 				
 				$page->addElementToHead(new XMLElement("link", NULL, array("rel" => "shortcut icon", "href" => "data:image/x-icon;base64," . $ico64data, "type" => "image/x-icon")), 100013);
+				
+				unset($colorhandle);
+				unset($ico64data);
+				imagedestroy($imagehandle);
 			}
 		}
 		
@@ -81,17 +85,28 @@
 
 		public function appendPreferences($context){
 			
+			$color = General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline'));
+			if($color=="")
+				$color="#";
+			
+			$div = new XMLElement('div');
+			$div->setAttribute('class', 'field field-colorchooser');
+			
 			$group = new XMLElement('fieldset');
 			$group->setAttribute('class', 'settings');
 			$group->appendChild(new XMLElement('legend', 'Admin Rainbow Headline'));
 
 
 			$label = Widget::Label('Headline Background Color');
-			$label->appendChild(Widget::Input('settings[admin_rainbow_headline][headline_color]', General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline'))));		
+			// TODO: # per default anzeigen
+			$label->appendChild(Widget::Input('settings[admin_rainbow_headline][headline_color]', $color));		
+			$label->setAttribute('class', 'color-chooser');
 			$group->appendChild($label);
 			$group->appendChild(new XMLElement('p', 'This can be any RGB-Hexvalue, for example <code>#97712B</code>', array('class' => 'help')));
 						
-			$context['wrapper']->appendChild($group);
+			$div->appendChild($group);
+			
+			$context['wrapper']->appendChild($div);
 						
 		}
 			
