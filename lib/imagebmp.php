@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 *------------------------------------------------------------
 *                   BMP Image functions
@@ -418,5 +418,3 @@ function int_to_dword($n){
 function int_to_word($n){
   return chr($n & 255).chr(($n >> 8) & 255);
 } 
-
-?>
