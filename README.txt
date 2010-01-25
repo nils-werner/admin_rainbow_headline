@@ -31,3 +31,6 @@ Admin Rainbow Headline comes to the rescue. It lets you set any RGB-Color for th
 
 1.2
 - Added support for color chooser field popup. Get it from http://github.com/MrBlank/symphony_color_chooser/tree/ to enable the popup.
+
+1.3
+- Switched favicon format from "image/vnd.microsoft.icon" using inofficial imagebmp()-functions to "image/png". Internet Explorer will not display the favicon.
