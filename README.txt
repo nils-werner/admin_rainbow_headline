@@ -2,7 +2,7 @@
 Admin Rainbow Headline
 ------------------------------------
 
-Version: 1.2
+Version: 1.4
 Author: Nils Werner (nils.werner@gmail.com)
 Build Date: 2009-08-08
 Requirements: Symphony 2.0.6
@@ -34,3 +34,6 @@ Admin Rainbow Headline comes to the rescue. It lets you set any RGB-Color for th
 
 1.3
 - Switched favicon format from "image/vnd.microsoft.icon" using inofficial imagebmp()-functions to "image/png". Internet Explorer will not display the favicon.
+
+1.4
+- Added support for translations.
