@@ -89,15 +89,15 @@
 			
 			$group = new XMLElement('fieldset');
 			$group->setAttribute('class', 'settings');
-			$group->appendChild(new XMLElement('legend', 'Admin Rainbow Headline'));
+			$group->appendChild(new XMLElement('legend', __('Admin Rainbow Headline')));
 
 
-			$label = Widget::Label('Headline Background Color');
+			$label = Widget::Label(__('Headline Background Color'));
 			// TODO: # per default anzeigen
 			$label->appendChild(Widget::Input('settings[admin_rainbow_headline][headline_color]', $color));		
 			$label->setAttribute('class', 'color-chooser');
 			$group->appendChild($label);
-			$group->appendChild(new XMLElement('p', 'This can be any RGB-Hexvalue, for example <code>#97712B</code>', array('class' => 'help')));
+			$group->appendChild(new XMLElement('p', __('This can be any RGB-Hexvalue, for example <code>#97712B</code>'), array('class' => 'help')));
 						
 			$div->appendChild($group);
 			
