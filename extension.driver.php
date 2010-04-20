@@ -48,7 +48,7 @@
 			
 			$color = General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline'));
 			
-			if($color != "") {
+			if($color != "" && $color != "#") {
 				$page->addElementToHead(new XMLElement("style", "body form h1, body form ul#usr { background-color: " . $color . "; }", array("type" => "text/css", "media" => "screen, projection")), 100012);
 				
 				$imagehandle = imagecreatetruecolor(16,16);
