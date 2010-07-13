@@ -49,11 +49,18 @@
 			$color = General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline'));
 			
 			if($color != "" && $color != "#") {
-				$page->addElementToHead(new XMLElement("style", "body form h1, body form ul#usr { background-color: " . $color . "; }", array("type" => "text/css", "media" => "screen, projection")), 100012);
+				$rgb = sscanf($color, '#%2x%2x%2x');
+				$luminance = (0.2126*$rgb[0]) + (0.7152*$rgb[1]) + (0.0722*$rgb[2]);
+				
+				$style = "body form h1, body form ul#usr { background-color: " . $color . "; } ";
+				
+				if($luminance > 125)
+					$style .= "body form h1, body form ul#usr { text-shadow: -1px 2px 3px #efefef; } body form h1 a, body form ul#usr a { color: #333333; } body form h1 a:hover, body form ul#usr a:hover { color: #000000; }";
+
+				$page->addElementToHead(new XMLElement("style", $style, array("type" => "text/css", "media" => "screen, projection")), 100012);
 				
 				$imagehandle = imagecreatetruecolor(16,16);
-				$colorarray = sscanf($color, '#%2x%2x%2x');
-				$colorhandle = imagecolorallocate($imagehandle,$colorarray[0],$colorarray[1],$colorarray[2]);
+				$colorhandle = imagecolorallocate($imagehandle,$rgb[0],$rgb[1],$rgb[2]);
 				imagefill($imagehandle,0,0,$colorhandle);
 				ob_start();
 				imagepng($imagehandle);
