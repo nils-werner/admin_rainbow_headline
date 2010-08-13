@@ -2,9 +2,9 @@
 Admin Rainbow Headline
 ------------------------------------
 
-Version: 1.5
+Version: 1.6
 Author: Nils Werner (nils.werner@gmail.com)
-Build Date: 2009-08-08
+Build Date: 2010-08-13
 Requirements: Symphony 2.0.6
 
 [ABOUT]
@@ -40,3 +40,6 @@ Admin Rainbow Headline comes to the rescue. It lets you set any RGB-Color for th
 
 1.5
 - Foreground colors are now luminance-aware. This means if you pick a bright color, the text will switch to black to be properly readable.
+
+1.6
+- Added compatibility with the new version info integrated into Symphony 2.1

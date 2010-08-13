@@ -4,8 +4,8 @@
 	
 		public function about(){
 			return array('name' => 'Admin Rainbow Headline',
-						 'version' => '1.5',
-						 'release-date' => '2010-07-13',
+						 'version' => '1.6',
+						 'release-date' => '2010-08-13',
 						 'author' => array('name' => 'Nils Werner',
 										   'website' => 'http://www.phoque.com/projekte/symphony',
 										   'email' => 'nils.werner@gmail.com')
@@ -55,7 +55,7 @@
 				$style = "body form h1, body form ul#usr { background-color: " . $color . "; } ";
 				
 				if($luminance > 125)
-					$style .= "body form h1, body form ul#usr { text-shadow: -1px 2px 3px #efefef; } body form h1 a, body form ul#usr a { color: #333333; } body form h1 a:hover, body form ul#usr a:hover { color: #000000; }";
+					$style .= "body form h1, body form ul#usr { text-shadow: -1px 2px 3px #efefef; } body form h1 a, body form ul#usr a { color: #333333; } body form p#version { color: #666666; } body form h1 a:hover, body form ul#usr a:hover { color: #000000; }";
 
 				$page->addElementToHead(new XMLElement("style", $style, array("type" => "text/css", "media" => "screen, projection")), 100012);
 				
