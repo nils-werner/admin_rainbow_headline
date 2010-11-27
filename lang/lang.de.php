@@ -26,6 +26,9 @@
 
 		'This can be any RGB-Hexvalue, for example <code>#97712B</code>' =>
 		'Jeder RGB-Hexwert ist möglich, z.B. <code>#97712B</code>',
+		
+		'You don\'t have the GD library installed. Admin Rainbow Headline will remain disabled until you\'ve installed it.' =>
+		'Die GD Bibliothek ist nicht installiert. Admin Rainbow Headline wird solange inaktiv bleiben bis sie installiert wurde.',
 
 	);
 	

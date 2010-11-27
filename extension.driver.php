@@ -44,6 +44,11 @@
 
 
 		public function initaliseAdminPageHead($context) {
+			if(!extension_loaded('gd')) {
+				Administration::instance()->Page->pageAlert(__('You don\'t have the GD library installed. Admin Rainbow Headline will remain disabled until you\'ve installed it.'), Alert::ERROR);
+				return;
+			}
+
 			$page = $context['parent']->Page;
 			
 			$color = General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline'));
