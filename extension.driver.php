@@ -4,8 +4,8 @@
 	
 		public function about(){
 			return array('name' => 'Admin Rainbow Headline',
-						 'version' => '1.6',
-						 'release-date' => '2010-08-13',
+						 'version' => '1.7',
+						 'release-date' => '2010-11-27',
 						 'author' => array('name' => 'Nils Werner',
 										   'website' => 'http://www.phoque.com/projekte/symphony',
 										   'email' => 'nils.werner@gmail.com')
