@@ -2,10 +2,10 @@
 Admin Rainbow Headline
 ------------------------------------
 
-Version: 1.7
+Version: 1.8
 Author: Nils Werner (nils.werner@gmail.com)
-Build Date: 2010-10-27
-Requirements: Symphony 2.0.6
+Build Date: 2011-02-02
+Requirements: Symphony 2.2
 
 [ABOUT]
 
@@ -46,3 +46,6 @@ Admin Rainbow Headline comes to the rescue. It lets you set any RGB-Color for th
 
 1.7
 - Added a check for GD library. Before, if it wasn't installed, the whole backend would simply break.
+
+1.8
+- Ensured compability to Symphony 2.2

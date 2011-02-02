@@ -4,8 +4,8 @@
 	
 		public function about(){
 			return array('name' => 'Admin Rainbow Headline',
-						 'version' => '1.7',
-						 'release-date' => '2010-11-27',
+						 'version' => '1.8',
+						 'release-date' => '2011-02-02',
 						 'author' => array('name' => 'Nils Werner',
 										   'website' => 'http://www.phoque.com/projekte/symphony',
 										   'email' => 'nils.werner@gmail.com')
@@ -38,7 +38,7 @@
 		}
                 
                 public function uninstall(){
-                        Administration::instance()->Configuration->remove('admin_rainbow_headline');            
+                        Symphony::Configuration()->remove('admin_rainbow_headline');            
                         Administration::instance()->saveConfig();
                 }
 
@@ -51,16 +51,16 @@
 
 			$page = $context['parent']->Page;
 			
-			$color = General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline'));
+			$color = General::Sanitize(Symphony::Configuration()->get('headline_color', 'admin_rainbow_headline'));
 			
 			if($color != "" && $color != "#") {
 				$rgb = sscanf($color, '#%2x%2x%2x');
 				$luminance = (0.2126*$rgb[0]) + (0.7152*$rgb[1]) + (0.0722*$rgb[2]);
 				
-				$style = "body form h1, body form ul#usr { background-color: " . $color . "; } ";
+				$style = "body .header, body .footer { background-color: " . $color . "; } ";
 				
 				if($luminance > 125)
-					$style .= "body form h1, body form ul#usr { text-shadow: -1px 2px 3px #efefef; } body form h1 a, body form ul#usr a { color: #333333; } body form p#version { color: #666666; } body form h1 a:hover, body form ul#usr a:hover { color: #000000; }";
+					$style .= "body .header, body .footer { text-shadow: -1px 2px 3px #efefef; } body .header a, body #usr a { color: #333333; } body .footer p#version { color: #666666; } body .header a:hover, body .footer a:hover { color: #000000; }";
 
 				$page->addElementToHead(new XMLElement("style", $style, array("type" => "text/css", "media" => "screen, projection")), 100012);
 				
@@ -92,7 +92,7 @@
 
 		public function appendPreferences($context){
 			
-			$color = General::Sanitize(Administration::instance()->Configuration->get('headline_color', 'admin_rainbow_headline'));
+			$color = General::Sanitize(Symphony::Configuration()->get('headline_color', 'admin_rainbow_headline'));
 			if($color=="")
 				$color="#";
 			
