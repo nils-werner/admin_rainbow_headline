@@ -109,7 +109,7 @@
 			$label->appendChild(Widget::Input('settings[admin_rainbow_headline][headline_color]', $color));		
 			$label->setAttribute('class', 'color-chooser');
 			$group->appendChild($label);
-			$group->appendChild(new XMLElement('p', __('This can be any RGB-Hexvalue, for example <code>#97712B</code>'), array('class' => 'help')));
+			$group->appendChild(new XMLElement('p', __('This can be any RGB-Hex value, for example <code>#97712B</code>.'), array('class' => 'help')));
 						
 			$div->appendChild($group);
 			
