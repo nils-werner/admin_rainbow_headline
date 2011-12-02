@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension id="admin_rainbow_headline">
+	<name>Rainbow Headline</name>
+	<description>Lets you colorize your backend headlines</description>
+	<repo type="github">https://github.com/nils-werner/admin_rainbow_headline</repo>
+	<url type="discuss">http://symphony-cms.com/discuss/thread/26467/</url>
+	<types>
+		<type>Interface</type>
+	</types>
+	<authors>
+		<author>
+			<name github="nils-werner" symphony="phoque">Nils Werner</name>
+			<website>http://www.phoque.de/</website>
+		</author>
+	</authors>
+	<media>
+		<item type="image" url="http://symphonyextensions.com/nils-werner/admin_rainbow_headline/media/admin_rainbow_headline.PNG">Rainbow Headline: Lets you colorize your backend headlines</item>
+	</media>
+	<releases>
+		<release version="1.8" date="2011-02-27" min="2.0.4" />
+	</releases>
+</extension>
