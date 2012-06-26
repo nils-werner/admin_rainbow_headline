@@ -2,17 +2,6 @@
 
 	Class extension_admin_rainbow_headline extends Extension{
 	
-		public function about(){
-			return array('name' => 'Admin Rainbow Headline',
-						 'version' => '1.8',
-						 'release-date' => '2011-02-02',
-						 'author' => array('name' => 'Nils Werner',
-										   'website' => 'http://www.phoque.com/projekte/symphony',
-										   'email' => 'nils.werner@gmail.com')
-				 		);
-		}
-		
-		
 		public function getSubscribedDelegates() {
 			return array(
 				array(
@@ -49,7 +38,7 @@
 				return;
 			}
 
-			$page = $context['parent']->Page;
+			$page = Administration::instance()->Page;
 			
 			$color = General::Sanitize(Symphony::Configuration()->get('headline_color', 'admin_rainbow_headline'));
 			
@@ -57,10 +46,13 @@
 				$rgb = sscanf($color, '#%2x%2x%2x');
 				$luminance = (0.2126*$rgb[0]) + (0.7152*$rgb[1]) + (0.0722*$rgb[2]);
 				
-				$style = "body #header, body #footer { background-color: " . $color . "; } ";
+				$style = "
+						body #header h1 { background-color: " . $color . "; }";
 				
 				if($luminance > 125)
-					$style .= "body #header, body #footer { text-shadow: -1px 2px 3px #efefef; } body #header a, body #usr a { color: #333333; } body #footer p#version { color: #666666; } body #header a:hover, body #footer a:hover { color: #000000; }";
+					$style .= "
+						body #header a { color: #333333; text-shadow: -1px 2px 3px rgba(0,0,0,0.3); }
+						body #header a:hover { color: #000000; }";
 
 				$page->addElementToHead(new XMLElement("style", $style, array("type" => "text/css", "media" => "screen, projection")), 100012);
 				
@@ -80,14 +72,14 @@
 			}
 		}
 		
-		public function savePreferences($context){
+		public function savePreferences(){
 			
 			$headline_color = trim(strtoupper($context['settings']['admin_rainbow_headline']['headline_color']));
 			if(strlen($headline_color) > 0 and substr($headline_color,0,1) != "#") {
 				$headline_color = "#" . $headline_color;
 			}
 			
-			$context['settings']['admin_rainbow_headline'] = array("headline_color" => substr(trim($headline_color), 0, 7));
+			Symphony::Configuration()->set('headline_color',substr(trim($headline_color), 0, 7),'admin_rainbow_headline');
 		}
 
 		public function appendPreferences($context){

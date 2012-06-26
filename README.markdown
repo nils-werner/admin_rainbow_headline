@@ -2,10 +2,10 @@
 Admin Rainbow Headline
 ======================
 
- - Version: 1.8
+ - Version: 1.9
  - Author: Nils Werner (nils.werner@gmail.com)
- - Build Date: 2011-12-13
- - Requirements: Symphony 2.2
+ - Build Date: 2012-06-26
+ - Requirements: Symphony 2.3
 
 About
 -----
